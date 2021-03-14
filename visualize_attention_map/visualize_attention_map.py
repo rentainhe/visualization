@@ -35,15 +35,15 @@ def visulize_attention(img_path, save_path, attention_mask, save_image=True, sav
     # save image
     if save_image:
         assert save_image is not None, "you need to set where to store the picture"
-    img_name = img_path.split('/')[-1].split('.')[0] + "_with_attention.jpg"
-    img_with_attention_save_path = os.path.join(save_path, img_name)
+        img_name = img_path.split('/')[-1].split('.')[0] + "_with_attention.jpg"
+        img_with_attention_save_path = os.path.join(save_path, img_name)
 
-    # pre-process before saving
-    print("save image to: " + save_path)
-    plt.axis('off')
-    plt.subplots_adjust(top=1, bottom=0, right=1, left=0, hspace=0, wspace=0)
-    plt.margins(0, 0)
-    plt.savefig(img_with_attention_save_path, dpi=100)
+        # pre-process before saving
+        print("save image to: " + save_path)
+        plt.axis('off')
+        plt.subplots_adjust(top=1, bottom=0, right=1, left=0, hspace=0, wspace=0)
+        plt.margins(0, 0)
+        plt.savefig(img_with_attention_save_path, dpi=100)
 
     # save original image
     if save_original_image:

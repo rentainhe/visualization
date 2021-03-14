@@ -3,48 +3,49 @@ import numpy as np
 import cv2
 from PIL import Image
 import matplotlib
+
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import os
 
-def visulize_attention(img, save_path, attention_mask):
+
+def visulize_attention_ratio(img_path, save_path, attention_mask, ratio=0.5, cmap="jet", save_image=False,
+                             save_original_image=False):
     """
-    alphas:     attn weights, (49,)
     img_path:   image file path to load
     save_path:  image file path to save
-    scale:      reshape alphas to (scale, scale)
-    return:
+    attention_mask: 2-D attention map with np.array type, e.g, (h, w) or (w, h)
+    ratio:  scaling factor to scale the output h and w
+    cmap:   attention style, default: "jet"
     """
-    # load the image
-    # img = skimage.img_as_float(img).astype(np.float32)
-    #         img_h, img_w = img.shape[0], img.shape[1]
+    print("load image from: ", img_path)
+    img = Image.open(img_path, mode='r')
     img_h, img_w = img.size[0], img.size[1]
     plt.subplots(nrows=1, ncols=1, figsize=(0.02 * img_h, 0.02 * img_w))
 
-    #         cv2.resize(img,(16,16))
-    # alphas = np.array(alphas).swapaxes(0, 1)  # n,49,1
-
+    # scale the image
+    img_h, img_w = int(img.size[0] * ratio), int(img.size[1] * ratio)
+    img = img.resize((img_h, img_w))
     plt.imshow(img, alpha=1)
     plt.axis('off')
-    #         scale  = 16
-    # alpha_img = skimage.transform.pyramid_expand(alphas[0,:].reshape(7,7),upscale=16,sigma=20)
-    # alpha_img = skimage.transform.resize(alphas[0, :].reshape(scale, scale), [img.shape[0], img.shape[1]])
-    #         alpha_img = transform.resize(alphas.reshape(scale, scale), [img_h, img_w])
-    #         alpha_img = transform.resize(alpha_img.reshape(scale, scale,1), [img_w, img_h])
+
     mask = cv2.resize(attention_mask, (img_h, img_w))
     normed_mask = mask / mask.max()
-    #         normed_mask = (normed_mask * 255 ).astype('uint8')
-    #         normed_mask = cv2.applyColorMap(normed_mask, cv2.COLORMAP_BONE)
-    #         if img.shape[2]
-    #         mask = cv2.resize(normed_mask, img.size)[..., np.newaxis]
-    #         img = cv2.addWeighted(np.float32(img),1,mask,0.2,0)
-    #         plt.imshow(normed_mask, alpha=0.2, interpolation='nearest')
+    normed_mask = (normed_mask * 255).astype('uint8')
+    plt.imshow(normed_mask, alpha=0.5, interpolation='nearest', cmap=cmap)
 
-    # plan B
-    mask = cv2.resize(normed_mask, img.size)[..., np.newaxis]
-    result = (img * mask).astype("uint8")
-    plt.imshow(result, alpha=1)
+    if save_image:
+        img_name = img_path.split('/')[-1].split('.')[0] + "_with_attention.jpg"
+        img_with_attention_save_path = os.path.join(save_path, img_name)
+        # pre-process before saving
+        print("save image to: " + save_path)
+        plt.axis('off')
+        plt.subplots_adjust(top=1, bottom=0, right=1, left=0, hspace=0, wspace=0)
+        plt.margins(0, 0)
+        plt.savefig(img_with_attention_save_path, dpi=100)
 
-    # save
-    # img_name = img_path.split('/')[-1]
-#         plt.savefig(save_path + 'atted.jpg', format='jpg', dpi=100)
+    if save_original_image:
+        print("save original image at the same time")
+        img_name = img_path.split('/')[-1].split('.')[0] + "_original.jpg"
+        original_image_save_path = os.path.join(save_path, img_name)
+        img.save(original_image_save_path, quality=100)
