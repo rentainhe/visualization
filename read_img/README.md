@@ -8,6 +8,7 @@ $ pip install matplotlib
 ```
 
 ### Contents
+- Relative Code is here [show_img.py](https://github.com/rentainhe/visualization/blob/master/read_img/show_img.py)
 
 #### Read Image by CV2
 ```python
