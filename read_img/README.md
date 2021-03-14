@@ -21,9 +21,11 @@ img = cv2.imread(img_path) # h, w, 3
 plt.imshow(img)
 ```
 - if __not reverse__ the last channel:
+
 ![](../figs/img_read_example/cv2_not_reverse.png)
 
 - if __reversed__:
+
 ![](../figs/img_read_example/reversed.png)
 
 #### Read Image by Pillow
@@ -37,6 +39,7 @@ plt.imshow(img)
 ```
 
 - You don't need to do other operations
+
 ![](../figs/img_read_example/reversed.png)
 
 
