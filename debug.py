@@ -1,15 +1,9 @@
-import torch
-import numpy as np
+import os
 import cv2
 from PIL import Image
-import matplotlib
-
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-import os
 
-
-def visulize_attention_ratio(img_path, save_path, attention_mask, ratio=0.5, cmap="jet", save_image=False,
+def visulize_attention_ratio(img_path, save_path, attention_mask, ratio=0.5, cmap="jet", save_image=False, save_id=0,
                              save_original_image=False):
     """
     img_path:   image file path to load
@@ -35,12 +29,12 @@ def visulize_attention_ratio(img_path, save_path, attention_mask, ratio=0.5, cma
     plt.imshow(normed_mask, alpha=0.5, interpolation='nearest', cmap=cmap)
 
     if save_image:
-        img_name = img_path.split('/')[-1].split('.')[0] + "_with_attention.jpg"
+        img_name = img_path.split('/')[-1].split('.')[0] + "_with_attention" + str(save_id)+ ".jpg"
         img_with_attention_save_path = os.path.join(save_path, img_name)
         # pre-process before saving
-        print("save image to: " + save_path + " as " + img_name)
+        print("save image to: " + save_path)
         plt.axis('off')
-        plt.subplots_adjust(top=1, bottom=0, right=1,  left=0, hspace=0, wspace=0)
+        plt.subplots_adjust(top=1, bottom=0, right=1, left=0, hspace=0, wspace=0)
         plt.margins(0, 0)
         plt.savefig(img_with_attention_save_path, dpi=100)
 
