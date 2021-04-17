@@ -25,7 +25,7 @@ visulize_attention_ratio(img_path=img_path, save_path=save_path, attention_mask=
 - __save_image=True: save the image with attention map or not, default: True.__
 - __save_original_image=True: save the original image, default: True__
 
-__Just run this example to see the result: [grid_attention_example.py]()__
+__Just run this example to see the result: [grid_attention_example.py](https://github.com/rentainhe/visualization/blob/master/grid_attention_example.py)__
 
 __Or you can check [Attention Map Visualization](https://github.com/rentainhe/visualization/tree/master/visualize_attention_map) here for more details__
 
@@ -43,6 +43,6 @@ region_attention_visualization(img_path, boxes, box_attentions=[0.36, 0.64], att
 - __box_attentions: the attention score of each bounding box__
 - __attention_ratio: a special param, if you set the attention_ratio larger, it will make the attention map look more shallow. Just try!__
 
-__Just run this example to see the result: [region_attention_example.py]()__
+__Just run this example to see the result: [region_attention_example.py](https://github.com/rentainhe/visualization/blob/master/region_attention_example.py)__
 
 __Or you can check [Region Attention Visualization](https://github.com/rentainhe/visualization/tree/master/visualize_region_attention) here for more details__
