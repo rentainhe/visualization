@@ -4,7 +4,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 
 
-def region_attention_visualization(img_path, boxes, box_attentions, img_ratio=1.5):
+def region_attention_visualization(img_path, boxes, box_attentions, img_ratio=1.5, attention_ratio=1.0):
     """
     img_path: 读取图片的位置
     boxes: 一系列 bounding box, 类型 np.int, [x,y,x,y] 前两个表示左上角坐标, 后两个是右下角坐标
@@ -27,10 +27,10 @@ def region_attention_visualization(img_path, boxes, box_attentions, img_ratio=1.
     img = np.ascontiguousarray(img)  # 将Image.Image类型转化为连续的numpy数组
     for box, attention in zip(boxes, box_attentions):
         box = cv2.rectangle(img, tuple(box[:2]), tuple(box[2:]), (255, 0, 0), -1)  # 最后一个值设置为负数, 表示全填充
-        plt.imshow(box, alpha=attention)
+        plt.imshow(box, alpha=attention / attention_ratio)  # add a scale of 2 for better visualization
     plt.show()
 
-
-img_path = "../test_data/test_image.jpg"
-boxes = np.array([[14, 25, 100, 200], [56, 75, 245, 300]], dtype='int')
-region_attention_visualization(img_path, boxes, box_attentions=[0.36, 0.64])
+if __name__ == "__main__":
+    img_path = "../test_data/test_image.jpg"
+    boxes = np.array([[14, 25, 100, 200], [56, 75, 245, 300]], dtype='int')
+    region_attention_visualization(img_path, boxes, box_attentions=[0.36, 0.64], attention_ratio=1.25)
