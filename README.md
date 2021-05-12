@@ -5,9 +5,11 @@ a collection of visualization operation
 - [__Attention Map Visualization__](https://github.com/rentainhe/visualization/tree/master/visualize_attention_map)
 - [__Image Reading Difference__](https://github.com/rentainhe/visualization/tree/master/read_img)
 - [__Region Attention Visualization__](https://github.com/rentainhe/visualization/tree/master/visualize_region_attention)
+- [__Draw Line Chart__]()
+
 
 ## Usage
-### Grid Attention Visualization
+### 1. Grid Attention Visualization
 ```python
 import numpy as np
 from visualize_attention_map.visualize_attention_map_V2 import visulize_attention_ratio
@@ -29,7 +31,7 @@ __Just run this example to see the result: [grid_attention_example.py](https://g
 
 __Or you can check [Attention Map Visualization](https://github.com/rentainhe/visualization/tree/master/visualize_attention_map) here for more details__
 
-### Region Attention Visualization
+### 2. Region Attention Visualization
 ```python
 from visualize_region_attention.region_attention_visualization import region_attention_visualization
 import numpy as np
@@ -46,3 +48,6 @@ region_attention_visualization(img_path, boxes, box_attentions=[0.36, 0.64], att
 __Just run this example to see the result: [region_attention_example.py](https://github.com/rentainhe/visualization/blob/master/region_attention_example.py)__
 
 __Or you can check [Region Attention Visualization](https://github.com/rentainhe/visualization/tree/master/visualize_region_attention) here for more details__
+
+### 3. Draw Line Chart
+- [__example.py__]()

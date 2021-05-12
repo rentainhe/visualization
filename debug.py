@@ -1,10 +1,8 @@
-import os
 import cv2
 from PIL import Image
 import matplotlib.pyplot as plt
 
-def visulize_attention_ratio(img_path, save_path, attention_mask, ratio=0.5, cmap="jet", save_image=False, save_id=0,
-                             save_original_image=False):
+def visulize_spatial_attention(img_path, attention_mask, ratio=1, cmap="jet"):
     """
     img_path:   image file path to load
     save_path:  image file path to save
@@ -27,19 +25,13 @@ def visulize_attention_ratio(img_path, save_path, attention_mask, ratio=0.5, cma
     normed_mask = mask / mask.max()
     normed_mask = (normed_mask * 255).astype('uint8')
     plt.imshow(normed_mask, alpha=0.5, interpolation='nearest', cmap=cmap)
+    plt.show()
 
-    if save_image:
-        img_name = img_path.split('/')[-1].split('.')[0] + "_with_attention" + str(save_id)+ ".jpg"
-        img_with_attention_save_path = os.path.join(save_path, img_name)
-        # pre-process before saving
-        print("save image to: " + save_path)
-        plt.axis('off')
-        plt.subplots_adjust(top=1, bottom=0, right=1, left=0, hspace=0, wspace=0)
-        plt.margins(0, 0)
-        plt.savefig(img_with_attention_save_path, dpi=100)
 
-    if save_original_image:
-        print("save original image at the same time")
-        img_name = img_path.split('/')[-1].split('.')[0] + "_original.jpg"
-        original_image_save_path = os.path.join(save_path, img_name)
-        img.save(original_image_save_path, quality=100)
+img_path = 'test_data/test_image.jpg'
+import numpy as np
+random_attention = np.random.randn(14, 14)
+save_path = 'test_data/'
+
+visulize_spatial_attention(img_path=img_path, attention_mask=random_attention)
+print(type(random_attention))
