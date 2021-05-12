@@ -50,4 +50,4 @@ __Just run this example to see the result: [region_attention_example.py](https:/
 __Or you can check [Region Attention Visualization](https://github.com/rentainhe/visualization/tree/master/visualize_region_attention) here for more details__
 
 ### 3. Draw Line Chart
-- [__example.py__]()
+- [__example.py__](https://github.com/rentainhe/visualization/blob/master/draw_line_chart/draw.py)
