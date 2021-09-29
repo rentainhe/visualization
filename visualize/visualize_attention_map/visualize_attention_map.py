@@ -8,18 +8,22 @@ import matplotlib.pyplot as plt
 import os
 
 
-def visulize_grid_attention(img_path, save_path, attention_mask, save_image=True, save_original_image=True):
+def visulize_grid_attention(img_path, save_path, attention_mask, ratio=0.5, save_image=True, save_original_image=True, quality=100):
     """
     img_path: where to load the image
     save_path: where to save the image
     attention_mask: the 2-D attention mask on your image, e.g: np.array (h, w) or (w, h)
+    ratio:  scaling factor to scale the output h and w
+    quality: save image quality
     """
     print("load image from: " + img_path)
     img = Image.open(img_path)
     img_h, img_w = img.size[0], img.size[1]
-
-    # set the background
     plt.subplots(nrows=1, ncols=1, figsize=(0.02 * img_h, 0.02 * img_w))
+    
+    # scale the image
+    img_h, img_w = int(img.size[0] * ratio), int(img.size[1] * ratio)
+    img = img.resize((img_h, img_w))
     plt.imshow(img, alpha=1)
     plt.axis('off')
 
@@ -43,11 +47,11 @@ def visulize_grid_attention(img_path, save_path, attention_mask, save_image=True
         plt.axis('off')
         plt.subplots_adjust(top=1, bottom=0, right=1, left=0, hspace=0, wspace=0)
         plt.margins(0, 0)
-        plt.savefig(img_with_attention_save_path, dpi=100)
+        plt.savefig(img_with_attention_save_path, dpi=quality)
 
     # save original image
     if save_original_image:
         print("save original image at the same time")
         img_name = img_path.split('/')[-1].split('.')[0] + "_original.jpg"
         original_image_save_path = os.path.join(save_path, img_name)
-        img.save(original_image_save_path, quality=100)
+        img.save(original_image_save_path, quality=quality)
