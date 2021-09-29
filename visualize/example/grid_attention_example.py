@@ -1,4 +1,4 @@
-from visualize.visualize_attention_map import visulize_grid_attention, visulize_grid_attention_v2
+from visualize.grid_attention_visualization import visulize_grid_attention, visulize_grid_attention_v2
 import numpy as np
 
 

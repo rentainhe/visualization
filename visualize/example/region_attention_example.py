@@ -1,5 +1,5 @@
 import numpy as np
-from visualize.visualize_region_attention import visualize_region_attention
+from visualize.region_attention_visualization import visualize_region_attention
 
 
 def run_region_attention_example(img_path="test_data/test_image.jpg", save_path="test", attention_retio=1.0, boxes=None, box_attentions=None, quality=200):

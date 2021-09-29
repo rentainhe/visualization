@@ -12,6 +12,9 @@ def visualize_region_attention(img_path, save_path, boxes, box_attentions, img_r
     boxes: 一系列 bounding box, 类型 np.int, [x,y,x,y] 前两个表示左上角坐标, 后两个是右下角坐标
     box_attentions:  每个box对应的attention值, 类型是list, list中每个index对应一个bounding box的attention
     img_ratio: 图片缩放比率（可选）
+    save_image: 保存生成attention后的图片
+    save_original_image: 保存原始图片
+    quality: 保存的图片质量
     """
     print("load image from: ", img_path)
     # load the image
