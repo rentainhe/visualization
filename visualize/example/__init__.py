@@ -1,1 +1,2 @@
 from visualize.example.grid_attention_example import run_grid_attention_example
+from visualize.example.region_attention_example import run_region_attention_example
