@@ -1,7 +1,8 @@
-from visualize import run_region_attention_example
-from visualize import visualize_region_attention
+from visualize import run_region_attention_example, run_grid_attention_example
+from visualize import visualize_region_attention, visulize_grid_attention, visulize_grid_attention_v2
 import numpy as np
 
+# test region attention
 img_path="test_data/test_image.jpg"
 save_path="test"
 attention_retio=1.0
@@ -15,3 +16,9 @@ visualize_region_attention(img_path,
                             save_image=True,
                             save_origin_image=True,
                             quality=100)
+
+# test region example
+run_region_attention_example()
+
+# test grid example
+run_grid_attention_example()
