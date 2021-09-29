@@ -1,11 +1,19 @@
 # visualization
-a collection of visualization operation
+a collection of visualization operation for easier usage
+
+## New Features
+**2021/09/29**
+- Add pip installation
+- Build a cleaner repo
 
 ## Contents
+### Visualization Function
 - [__Attention Map Visualization__](https://github.com/rentainhe/visualization/tree/master/visualize_attention_map)
-- [__Image Reading Difference__](https://github.com/rentainhe/visualization/tree/master/read_img)
 - [__Region Attention Visualization__](https://github.com/rentainhe/visualization/tree/master/visualize_region_attention)
 - [__Draw Line Chart__]()
+
+### Learning Notes Sharing
+- [__Image Reading Difference__](https://github.com/rentainhe/visualization/tree/master/read_img)
 
 
 ## Usage

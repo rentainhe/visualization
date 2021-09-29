@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import os
 
 
-def visulize_attention(img_path, save_path, attention_mask, save_image=True, save_original_image=True):
+def visulize_grid_attention(img_path, save_path, attention_mask, save_image=True, save_original_image=True):
     """
     img_path: where to load the image
     save_path: where to save the image
@@ -51,6 +51,3 @@ def visulize_attention(img_path, save_path, attention_mask, save_image=True, sav
         img_name = img_path.split('/')[-1].split('.')[0] + "_original.jpg"
         original_image_save_path = os.path.join(save_path, img_name)
         img.save(original_image_save_path, quality=100)
-
-if __name__ == "__main__":
-    ...

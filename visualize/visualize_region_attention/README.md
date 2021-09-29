@@ -27,7 +27,7 @@ cv2.rectangle(img=..., pt1=..., pt2=..., color=..., thickness=...)
 
 ### Results
 #### original figure
-![](../figs/attention/region_image_original.jpg)
+![](/figs/attention/region_image_original.jpg)
 
 #### with region attention
-![](../figs/attention/region_image_with_attention.jpg)
+![](/figs/attention/region_image_with_attention.jpg)

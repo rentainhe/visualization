@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import os
 
 
-def visulize_attention_ratio(img_path, save_path, attention_mask, ratio=0.5, cmap="jet", save_image=False,
+def visulize_grid_attention_v2(img_path, save_path, attention_mask, ratio=0.5, cmap="jet", save_image=False,
                              save_original_image=False):
     """
     img_path:   image file path to load
