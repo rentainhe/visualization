@@ -35,9 +35,13 @@ def visulize_grid_attention_v2(img_path, save_path, attention_mask, ratio=0.5, c
     plt.imshow(normed_mask, alpha=0.5, interpolation='nearest', cmap=cmap)
 
     if save_image:
+        # build save path
+        if not os.path.exists(save_path):
+            os.mkdir(save_path)
         img_name = img_path.split('/')[-1].split('.')[0] + "_with_attention.jpg"
         img_with_attention_save_path = os.path.join(save_path, img_name)
-        # pre-process before saving
+        
+        # pre-process and save image
         print("save image to: " + save_path + " as " + img_name)
         plt.axis('off')
         plt.subplots_adjust(top=1, bottom=0, right=1,  left=0, hspace=0, wspace=0)
@@ -45,6 +49,11 @@ def visulize_grid_attention_v2(img_path, save_path, attention_mask, ratio=0.5, c
         plt.savefig(img_with_attention_save_path, dpi=100)
 
     if save_original_image:
+        # build save path
+        if not os.path.exists(save_path):
+            os.mkdir(save_path)
+
+        # save original image file
         print("save original image at the same time")
         img_name = img_path.split('/')[-1].split('.')[0] + "_original.jpg"
         original_image_save_path = os.path.join(save_path, img_name)
