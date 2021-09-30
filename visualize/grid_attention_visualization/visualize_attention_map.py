@@ -37,6 +37,9 @@ def visulize_grid_attention(img_path, save_path, attention_mask, ratio=0.5, save
 
     # save image
     if save_image:
+        # build save path
+        if not os.path.exists(save_path):
+            os.mkdir(save_path)
         assert save_image is not None, "you need to set where to store the picture"
         img_name = img_path.split('/')[-1].split('.')[0] + "_with_attention.jpg"
         img_with_attention_save_path = os.path.join(save_path, img_name)
@@ -50,6 +53,10 @@ def visulize_grid_attention(img_path, save_path, attention_mask, ratio=0.5, save
 
     # save original image
     if save_original_image:
+        # build save path
+        if not os.path.exists(save_path):
+            os.mkdir(save_path)
+        
         print("save original image at the same time")
         img_name = img_path.split('/')[-1].split('.')[0] + "_original.jpg"
         original_image_save_path = os.path.join(save_path, img_name)
