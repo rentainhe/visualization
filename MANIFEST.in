@@ -1,1 +1,1 @@
-include test_data/*.jpg
+include visualize/test_data/*.jpg
