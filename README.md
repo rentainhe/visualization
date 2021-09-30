@@ -8,21 +8,80 @@ a collection of visualization operation for easier usage
 
 ## Contents
 ### Visualization Function
-- [__Attention Map Visualization__](https://github.com/rentainhe/visualization/tree/master/visualize_attention_map)
-- [__Region Attention Visualization__](https://github.com/rentainhe/visualization/tree/master/visualize_region_attention)
-- [__Draw Line Chart__]()
+- [__Grid Attention Visualization__](/visualize/grid_attention_visualization/)
+- [__Region Attention Visualization__](/visualize/region_attention_visualization/)
+- [__Draw Line Chart__](/visualize/draw_line_chart/draw.py)
 
 ### Learning Notes Sharing
-- [__Image Reading Difference__](https://github.com/rentainhe/visualization/tree/master/read_img)
+- [__Image Reading Difference__](/notes)
 
+
+## Installation
+```bash
+pip install visualize==0.5.0
+```
 
 ## Usage
-### 1. Grid Attention Visualization
+<details>
+<summary> <b> Run Example </b> </summary>
+
+You can try [example.py](/example.py) by cloning this repo for a quick start.
+```bash
+git clone https://github.com/rentainhe/visualization.git
+python example.py
+```
+results will be saved to `./test_grid_attention` and `./test_region_attention`
+</details>
+
+<details>
+<summary> <b> Region Attention Visualization </b> </summary>
+
+**download the [example.jpg](/visualize/test_data/example.jpg) to any folder you like**
+```bash
+$ wget 
+```
+**build the following python script for a quick start**
 ```python
 import numpy as np
-from visualize_attention_map.visualize_attention_map_V2 import visulize_attention_ratio
+from visualize import visualize_region_attention
 
-img_path = 'test_data/test_image.jpg'
+img_path="path/to/example.jpg"
+save_path="example"
+attention_retio=1.0
+boxes = np.array([[14, 25, 100, 200], [56, 75, 245, 300]], dtype='int')
+boxes_attention = [0.36, 0.64]
+visualize_region_attention(img_path,
+                           save_path=save_path, 
+                           boxes=boxes, 
+                           box_attentions=boxes_attention, 
+                           attention_ratio=attention_retio,
+                           save_image=True,
+                           save_origin_image=True,
+                           quality=100)
+```
+- `img_path`: where to load the original image
+- `boxes`: a list of coordinates for the bounding boxes
+- `box_attentions`: a list of attention scores for each bounding box
+- `attention_ratio`: a special param, if you set the attention_ratio larger, it will make the attention map look more shallow. Just try!
+
+**Note that you can check [Region Attention Visualization](/visualize/region_attention_visualization/) here for more details**
+
+</details>
+
+<details>
+<summary> <b> Grid Attention Visualization</b> </summary>
+
+**download the [example.jpg](/visualize/test_data/example.jpg) to any folder you like**
+```bash
+$ wget 
+```
+
+**build the following python script for a quick start**
+```python
+import numpy as np
+from visualize 
+
+img_path = 'test_data/example.jpg'
 save_path = 'test_data/'
 random_attention = np.random.randn(14, 14)
 
@@ -35,27 +94,8 @@ visulize_attention_ratio(img_path=img_path, save_path=save_path, attention_mask=
 - __save_image=True: save the image with attention map or not, default: True.__
 - __save_original_image=True: save the original image, default: True__
 
-__Just run this example to see the result: [grid_attention_example.py](https://github.com/rentainhe/visualization/blob/master/grid_attention_example.py)__
 
-__Or you can check [Attention Map Visualization](https://github.com/rentainhe/visualization/tree/master/visualize_attention_map) here for more details__
+**Note that you can check [Attention Map Visualization](https://github.com/rentainhe/visualization/tree/master/visualize_attention_map) here for more details**
 
-### 2. Region Attention Visualization
-```python
-from visualize_region_attention.region_attention_visualization import region_attention_visualization
-import numpy as np
+</details>
 
-img_path = "test_data/test_image.jpg"
-boxes = np.array([[14, 25, 100, 200], [56, 75, 245, 300]], dtype='int')
-region_attention_visualization(img_path, boxes, box_attentions=[0.36, 0.64], attention_ratio=1.0)
-```
-- __img_path: the path of the original image__
-- __boxes: bounding box__
-- __box_attentions: the attention score of each bounding box__
-- __attention_ratio: a special param, if you set the attention_ratio larger, it will make the attention map look more shallow. Just try!__
-
-__Just run this example to see the result: [region_attention_example.py](https://github.com/rentainhe/visualization/blob/master/region_attention_example.py)__
-
-__Or you can check [Region Attention Visualization](https://github.com/rentainhe/visualization/tree/master/visualize_region_attention) here for more details__
-
-### 3. Draw Line Chart
-- [__example.py__](https://github.com/rentainhe/visualization/blob/master/draw_line_chart/draw.py)

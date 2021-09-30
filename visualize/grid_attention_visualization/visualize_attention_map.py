@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import os
 
 
-def visulize_grid_attention(img_path, save_path, attention_mask, ratio=0.5, save_image=True, save_original_image=True, quality=100):
+def visualize_grid_attention(img_path, save_path, attention_mask, ratio=0.5, save_image=True, save_original_image=True, quality=100):
     """
     img_path: where to load the image
     save_path: where to save the image
