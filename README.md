@@ -38,7 +38,7 @@ results will be saved to `./test_grid_attention` and `./test_region_attention`
 
 **download the [example.jpg](/visualize/test_data/example.jpg) to any folder you like**
 ```bash
-$ wget 
+$ wget https://github.com/rentainhe/visualization/blob/master/visualize/test_data/example.jpg
 ```
 **build the following python script for a quick start**
 ```python
@@ -75,7 +75,7 @@ visualize_region_attention(img_path,
 
 **download the [example.jpg](/visualize/test_data/example.jpg) to any folder you like**
 ```bash
-$ wget 
+$ wget https://github.com/rentainhe/visualization/blob/master/visualize/test_data/example.jpg
 ```
 
 **build the following python script for a quick start**
