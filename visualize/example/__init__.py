@@ -1,0 +1,2 @@
+from .grid_attention_example import run_grid_attention_example
+from .region_attention_example import run_region_attention_example

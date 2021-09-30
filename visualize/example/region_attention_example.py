@@ -1,8 +1,8 @@
 import numpy as np
-from visualize.region_attention_visualization import visualize_region_attention
+from ..region_attention_visualization import visualize_region_attention
 
 
-def run_region_attention_example(img_path="test_data/test_image.jpg", save_path="test", attention_retio=1.0, boxes=None, box_attentions=None, quality=200):
+def run_region_attention_example(img_path="visualize/test_data/test_image.jpg", save_path="test", attention_retio=1.0, boxes=None, box_attentions=None, quality=200):
     if boxes:
         assert box_attentions is not None, "boxes should be passed in with box_attentions"
     else:

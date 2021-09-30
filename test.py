@@ -3,7 +3,7 @@ from visualize import visualize_region_attention, visulize_grid_attention, visul
 import numpy as np
 
 # test region attention
-img_path="test_data/test_image.jpg"
+img_path="visualize/test_data/test_image.jpg"
 save_path="test"
 attention_retio=1.0
 boxes = np.array([[14, 25, 100, 200], [56, 75, 245, 300]], dtype='int')
