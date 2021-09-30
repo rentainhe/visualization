@@ -1,5 +1,5 @@
 # visualization
-a collection of visualization operation for easier usage
+a collection of visualization operation for easier usage, check [usage](#usage) for a quick start.
 
 ## New Features
 **2021/09/29**
@@ -63,6 +63,8 @@ visualize_region_attention(img_path,
 - `boxes`: a list of coordinates for the bounding boxes
 - `box_attentions`: a list of attention scores for each bounding box
 - `attention_ratio`: a special param, if you set the attention_ratio larger, it will make the attention map look more shallow. Just try!
+- `save_image=True`: save the image with attention map or not, e.g., default: True.
+- `save_original_image=True`: save the original image at the same time, e.g., default: True
 
 **Note that you can check [Region Attention Visualization](/visualize/region_attention_visualization/) here for more details**
 
@@ -78,21 +80,24 @@ $ wget
 
 **build the following python script for a quick start**
 ```python
+from visualize import visualize_grid_attention_v2
 import numpy as np
-from visualize 
 
-img_path = 'test_data/example.jpg'
-save_path = 'test_data/'
-random_attention = np.random.randn(14, 14)
-
-visulize_attention_ratio(img_path=img_path, save_path=save_path, attention_mask=random_attention, save_image=True,
-                   save_original_image=True)
+img_path="./example.jpg"
+save_path="test"
+attention_mask = np.random.randn(14, 14)
+visualize_grid_attention_v2(img_path,
+                           save_path=save_path,
+                           attention_mask=attention_mask,
+                           save_image=True,
+                           save_original_image=True,
+                           quality=100)
 ```
-- __img_path: where the image you want to put an attention mask on.__
-- __save_path: where to save the image.__
-- __attention_mask: the attention mask with format `numpy.ndarray`, its shape is (H, W)__
-- __save_image=True: save the image with attention map or not, default: True.__
-- __save_original_image=True: save the original image, default: True__
+- `img_path`: where the image you want to put an attention mask on.
+- `save_path`: where to save the image.
+- `attention_mask`: the attention mask with format `numpy.ndarray`, its shape is (H, W)
+- `save_image=True`: save the image with attention map or not, e.g., default: True.
+- `save_original_image=True`: save the original image at the same time, e.g., default: True
 
 
 **Note that you can check [Attention Map Visualization](https://github.com/rentainhe/visualization/tree/master/visualize_attention_map) here for more details**
