@@ -1,29 +1,4 @@
-ckpts/
-results/cache/*.json
-results/cache/*.txt
-results/result_test/*.json
-results/result_test/*.txt
-results/pred/*.pkl
-results/log/*.txt
-data/clevr/raw/images/
-data/clevr/raw/questions/
-data/clevr/raw/scenes/
-data/clevr/feats/train/
-data/clevr/feats/val/
-data/clevr/feats/test/
-data/gqa/raw/eval/
-data/gqa/raw/questions1.2/
-data/gqa/raw/sceneGraphs/
-data/gqa/feats/gqa-frcn/
-data/gqa/feats/gqa-grid/
-data/vqa/raw/*.json
-data/vqa/feats/train2014/
-data/vqa/feats/val2014/
-data/vqa/feats/test2015/
 .idea/
-
-
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -73,6 +48,7 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *.cover
+*.py,cover
 .hypothesis/
 .pytest_cache/
 
@@ -116,8 +92,12 @@ ipython_config.py
 #   install all needed dependencies.
 #Pipfile.lock
 
-# celery beat schedule file
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
 celerybeat-schedule
+celerybeat.pid
 
 # SageMath parsed files
 *.sage.py
@@ -148,9 +128,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
-# Microsoft
-.vscode
-.vscode/
-.vs
-.vs/
