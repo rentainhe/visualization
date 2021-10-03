@@ -1,8 +1,15 @@
 from visualize import visualize_region_attention, visualize_grid_attention, visualize_grid_attention_v2
 import numpy as np
 
-def run_region_attention_example():
+# helpers
+def softmax(x):
+    """Compute softmax values for each sets of scores in x."""
+    e_x = np.exp(x - np.max(x))
+    return e_x / e_x.sum()
+
+
 # test region attention
+def run_region_attention_example():
     img_path="visualize/test_data/example.jpg"
     save_path="test_region_attention/"
     attention_retio=1.0
@@ -18,21 +25,24 @@ def run_region_attention_example():
                                 quality=100)
 
 
+# test grid attention
 def run_grid_attention_example(img_path="visualize/test_data/example.jpg", save_path="test_grid_attention/", attention_mask=None, version=2, quality=100):
     if not attention_mask:
-        attention_mask = np.random.randn(14, 14)
+        attention_mask = np.random.randn(64)
+        normed_attention_mask = softmax(attention_mask).reshape(8, 8)
+        # attention_mask = np.random.randn(14, 14)
     assert version in [1, 2], "We only support two version of attention visualization example"
     if version == 1:
         visualize_grid_attention(img_path=img_path, 
                                 save_path=save_path, 
-                                attention_mask=attention_mask, 
+                                attention_mask=normed_attention_mask, 
                                 save_image=True,
                                 save_original_image=True,
                                 quality=quality)
     elif version == 2:
         visualize_grid_attention_v2(img_path=img_path, 
                                    save_path=save_path, 
-                                   attention_mask=attention_mask, 
+                                   attention_mask=normed_attention_mask, 
                                    save_image=True,
                                    save_original_image=True,
                                    quality=quality)
