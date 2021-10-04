@@ -23,7 +23,7 @@ setup(
     install_requires=['numpy',
                       'opencv-python',
                       'matplotlib',
-                      'Pillow'
+                      'Pillow',
                       ],
     classifiers = [
         'License :: OSI Approved :: MIT License',

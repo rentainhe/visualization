@@ -1,5 +1,7 @@
-from visualize import visualize_region_attention, visualize_grid_attention, visualize_grid_attention_v2
 import numpy as np
+from visualize import visualize_region_attention, visualize_grid_attention, visualize_grid_attention_v2
+from visualize import draw_line_chart
+
 
 # helpers
 def softmax(x):
@@ -47,6 +49,25 @@ def run_grid_attention_example(img_path="visualize/test_data/example.jpg", save_
                                    save_original_image=True,
                                    quality=quality)
 
+def run_line_chart_example():
+    # test data
+    data1 = {"data": [13.15, 14.64, 15.83, 17.99], "name": "data 1"}
+    data2 = {"data": [14.16, 14.81, 16.11, 18.62], "name": "data 2"}
+    data_list = []
+    data_list.append(data1["data"])
+    data_list.append(data2["data"])
+    name_list = []
+    name_list.append(data1["name"])
+    name_list.append(data2["name"])
+    draw_line_chart(data_list=data_list,
+                    labels=name_list,
+                    xlabel="test_x",
+                    ylabel="test_y",
+                    save_path="./test.jpg",
+                    legend={"loc": "upper left", "frameon": True, "fontsize": 12},
+                    title="example")
+
 if __name__ == "__main__":
     run_grid_attention_example(version=2) # version in [1, 2]
     run_region_attention_example()
+    run_line_chart_example()

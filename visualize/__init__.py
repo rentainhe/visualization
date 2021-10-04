@@ -1,2 +1,3 @@
 from .grid_attention_visualization import visualize_grid_attention, visualize_grid_attention_v2
 from .region_attention_visualization import visualize_region_attention
+from .line_chart import add_path, load_data_from_txt, draw_line_chart
