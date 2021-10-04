@@ -10,7 +10,7 @@ a collection of visualization operation for easier usage, check [usage](#usage) 
 ### Visualization Function
 - [__Grid Attention Visualization__](/visualize/grid_attention_visualization/)
 - [__Region Attention Visualization__](/visualize/region_attention_visualization/)
-- [__Draw Line Chart__](/visualize/draw_line_chart/draw.py)
+- [__Draw Line Chart__](/visualize/line_chart/drawer.py)
 
 ### Learning Notes Sharing
 - [__Image Reading Difference__](/notes)
@@ -18,7 +18,7 @@ a collection of visualization operation for easier usage, check [usage](#usage) 
 
 ## Installation
 ```bash
-pip install visualize==0.5.0
+pip install visualize==0.5.1
 ```
 
 ## Usage
@@ -104,3 +104,37 @@ visualize_grid_attention_v2(img_path,
 
 </details>
 
+<details>
+<summary> <b> Draw Line Chart </b> </summary>
+
+**build the following python script for a quick start**
+```python
+from visualize import draw_line_chart
+import numpy as np
+
+# test data
+data1 = {"data": [13.15, 14.64, 15.83, 17.99], "name": "data 1"}
+data2 = {"data": [14.16, 14.81, 16.11, 18.62], "name": "data 2"}
+data_list = []
+data_list.append(data1["data"])
+data_list.append(data2["data"])
+name_list = []
+name_list.append(data1["name"])
+name_list.append(data2["name"])
+draw_line_chart(data_list=data_list,
+                labels=name_list,
+                xlabel="test_x",
+                ylabel="test_y",
+                save_path="./test.jpg",
+                legend={"loc": "upper left", "frameon": True, "fontsize": 12},
+                title="example")
+```
+- `data_list`: a list of data to draw.
+- `labels`: the label corresponds to each data in data_list.
+- `xlabel`: label of x-axis.
+- `ylabel`: label of y-axis.
+- `save_path`: the path to save image.
+- `legend`: the params of legend.
+- `title`: the title of the saved image.
+
+</details>
