@@ -14,7 +14,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='visualize',
-    version='0.5.0', # 版本号
+    version='0.5.1', # 版本号
     author='rentianhe',
     author_email='596106517@qq.com',
     description='useful visualization function',

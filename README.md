@@ -110,7 +110,6 @@ visualize_grid_attention_v2(img_path,
 **build the following python script for a quick start**
 ```python
 from visualize import draw_line_chart
-import numpy as np
 
 # test data
 data1 = {"data": [13.15, 14.64, 15.83, 17.99], "name": "data 1"}
