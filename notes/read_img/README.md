@@ -23,11 +23,11 @@ plt.imshow(img)
 ```
 - if __not reverse__ the last channel:
 
-![](../figs/img_read_example/cv2_not_reverse.png)
+![](/figs/img_read_example/cv2_not_reverse.png)
 
 - if __reversed__:
 
-![](../figs/img_read_example/reversed.png)
+![](/figs/img_read_example/reversed.png)
 
 #### Read Image by Pillow
 ```python
