@@ -139,8 +139,6 @@ draw_line_chart(data_list=data_list,
 - `legend`: the params of legend.
 - `title`: the title of the saved image.
 
-You will get result like this:
-![](figs/line_chart.jpg)
 
 </details>
 </details>
