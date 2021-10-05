@@ -2,6 +2,9 @@
 a collection of visualization operation for easier usage, check [usage](#usage) for a quick start.
 
 ## New Features
+**2021/10/4**
+- Add `draw_line_chart` function, please check [drawer.py](/visualize/line_chart/drawer.py)
+
 **2021/09/29**
 - Add pip installation
 - Build a cleaner repo
@@ -139,4 +142,5 @@ draw_line_chart(data_list=data_list,
 You will get result like this:
 ![](figs/line_chart.jpg)
 
+</details>
 </details>
