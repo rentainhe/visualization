@@ -68,6 +68,6 @@ def run_line_chart_example():
                     title="example")
 
 if __name__ == "__main__":
+    run_line_chart_example()
     run_grid_attention_example(version=2) # version in [1, 2]
     run_region_attention_example()
-    run_line_chart_example()
