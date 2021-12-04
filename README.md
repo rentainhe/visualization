@@ -103,7 +103,7 @@ visualize_grid_attention_v2(img_path,
 - `save_original_image=True`: save the original image at the same time, e.g., default: True
 
 
-**Note that you can check [Attention Map Visualization](https://github.com/rentainhe/visualization/tree/master/visualize_attention_map) here for more details**
+**Note that you can check [Grid Attention Visualization](https://github.com/rentainhe/visualization/tree/master/visualize/grid_attention_visualization) here for more details**
 
 </details>
 
