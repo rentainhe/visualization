@@ -18,6 +18,9 @@ a collection of visualization operation for easier usage, check [usage](#usage) 
 ### Learning Notes Sharing
 - [__Image Reading Difference__](/notes)
 
+### Relative Blogs
+- [Region Attention Map Visualize](https://zhuanlan.zhihu.com/p/364486740)
+- [Grid Attention Map Visualize](https://zhuanlan.zhihu.com/p/356798637)
 
 ## Installation
 ```bash
