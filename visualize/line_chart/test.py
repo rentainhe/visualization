@@ -1,3 +1,9 @@
+# encoding: utf-8
+"""
+@author:  rentianhe
+@contact: 596106517@qq.com
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.style as style
